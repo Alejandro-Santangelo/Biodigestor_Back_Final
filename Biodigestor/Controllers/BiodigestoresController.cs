@@ -26,6 +26,10 @@ namespace Biodigestor.Controllers
       [HttpGet]
       public async Task<ActionResult<IEnumerable<Models.Biodigestor>>> GetBiodigestores()
       {
+         if (_context.BiodigestorEntities == null)
+         {
+             return NotFound();
+         }
          return await _context.BiodigestorEntities.ToListAsync();
       }  
 
@@ -33,6 +37,34 @@ namespace Biodigestor.Controllers
       [HttpGet("{id}")]
 public async Task<ActionResult<Models.Biodigestor>> GetBiodigestor(int id)
 {
+    if (_context.BiodigestorEntities == null)
+    {
+        return NotFound();
+    }
+    if (_context.BiodigestorEntities == null)
+    {
+        return NotFound();
+    }
+    if (_context.BiodigestorEntities == null)
+    {
+        return NotFound();
+    }
+    if (_context.BiodigestorEntities == null)
+    {
+        return NotFound();
+    }
+    if (_context.BiodigestorEntities == null)
+    {
+        return NotFound();
+    }
+    if (_context.BiodigestorEntities == null)
+    {
+        return NotFound();
+    }
+    if (_context.BiodigestorEntities == null)
+    {
+        return NotFound();
+    }
     var biodigestor = await _context.BiodigestorEntities.FindAsync(id);
 
     if (biodigestor == null)
@@ -77,6 +109,10 @@ public async Task<ActionResult<Models.Biodigestor>> GetBiodigestor(int id)
         [HttpPost]
 public async Task<ActionResult<Models.Biodigestor>> PostBiodigestor(Models.Biodigestor biodigestor)
 {
+    if (_context.BiodigestorEntities == null)
+    {
+        return Problem("Entity set 'BiodigestorContext.BiodigestorEntities'  is null.");
+    }
     _context.BiodigestorEntities.Add(biodigestor);
     await _context.SaveChangesAsync();
 
@@ -87,6 +123,11 @@ public async Task<ActionResult<Models.Biodigestor>> PostBiodigestor(Models.Biodi
       [HttpDelete("{id}")]
 public async Task<ActionResult<Models.Biodigestor>> DeleteBiodigestor(int id)
 {
+    if (_context.BiodigestorEntities == null)
+    {
+        return NotFound();
+    }
+    
     var biodigestor = await _context.BiodigestorEntities.FindAsync(id);
     if (biodigestor == null)
     {
@@ -101,7 +142,7 @@ public async Task<ActionResult<Models.Biodigestor>> DeleteBiodigestor(int id)
 
         private bool BiodigestorExists(int id)
 {
-    return _context.BiodigestorEntities.Any(e => e.IdBiodigestor == id);
+    return _context.BiodigestorEntities != null && _context.BiodigestorEntities.Any(e => e.IdBiodigestor == id);
 }
     }
 }

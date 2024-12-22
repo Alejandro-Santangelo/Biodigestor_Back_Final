@@ -59,7 +59,7 @@ namespace Biodigestor.Controllers
                 Titulo = consultaInput.Titulo,
                 Contenido = consultaInput.Contenido,
                 FechaCreacion = DateTime.Now,
-                Username = User.Identity.Name ?? "Anónimo",
+                Username = User?.Identity?.Name ?? "Anónimo",
                 Respuestas = new List<Respuesta>() // Aseguramos que Respuestas no sea null
             };
 
